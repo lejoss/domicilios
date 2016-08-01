@@ -1,0 +1,27 @@
+{
+  "name": "deliveryAPI",
+  "version": "1.0.0",
+  "description": "delivery API",
+  "main": "dist",
+  "scripts": {
+    "dev": "watch 'npm run build' src/",
+    "start": "node dist",
+    "build": "babel src -s -D -d dist",
+    "clean": "rm -r dist/*"
+  },
+  "keywords": [],
+  "author": "lejoss",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "watch": "latest"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.7",
+    "multer": "^1.1.0"
+  }
+}
