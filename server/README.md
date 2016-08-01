@@ -4,8 +4,13 @@ This is a Express Server for Deliveries
 
 ### Running the server
 
-`cd server`
+Install mongo db and run service
 
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+after installing mongodb
+
+`cd server`
 
 
 `npm install`
@@ -30,5 +35,5 @@ Go dev (this command will watch your /src folder and build /dist)
 
 Clean (Remove /dist)
 
-'npm run clean'
+`npm run clean`
 
