@@ -21,7 +21,6 @@ const storeController = (Store) => {
                     newStore.links.self =  'http://' + req.headers.host + '/api/stores/' + newStore._id
                     returnStores.push(newStore)
                 })
-
                 res.json(returnStores)
             }
         })

@@ -10,6 +10,7 @@ import {
     View,
     StyleSheet,
     Platform,
+    Navigator,
     Image,
     TouchableHighlight,
     TouchableNativeFeedback  } from 'react-native'
@@ -28,11 +29,12 @@ export default class StoreListItem extends Component {
     }
 
     componentDidMount() {
+        console.log('mounted')
         this.fetchData()
     }
 
     fetchData() {
-        return fetch('http://192.168.1.63:5555/api/stores')
+        return fetch('http://192.168.1.57:5555/api/stores')
             .then((res) => res.json())
             .then((resJson) => {
                 console.log(resJson)

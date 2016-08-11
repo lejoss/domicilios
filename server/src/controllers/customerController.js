@@ -26,6 +26,7 @@ const customerController = (Customer) => {
     }
 
     const post = (req, res) => {
+
         let customer = new Customer(req.body)
         console.log(customer)
 
