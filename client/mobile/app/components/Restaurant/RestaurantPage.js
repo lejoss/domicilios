@@ -23,7 +23,7 @@ export default class RestaurantPage extends Component {
     }
 
     fetchData() {
-        return fetch('http://192.168.1.57:5555/api/stores')
+        return fetch('http://192.168.1.57:5555/api/restaurants')
             .then((res) => res.json())
             .then((resJson) => {
                 console.log(resJson)

@@ -21,9 +21,10 @@ export default class RestaurantList extends Component {
     }
 
     renderRestaurantList = (restaurant) => (
+        //<Image style={{height:80, width:80}} source={{uri: restaurant.image}} />
         <View style={{flex:1, flexDirection: "row", borderWidth:1, borderColor:"#E0E0E0"}}>
-            <Image style={{height:80, width:80}} source={{uri: restaurant.image}} />
-
+            <View style={{height:80, width:80,backgroundColor:"#BDBDBD"}}>
+            </View>
             <View style={{flex:1, flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#eee"}}>
                 <Text style={{color:"#9E9E9E"}}>{restaurant.name}</Text>
             </View>

@@ -1,22 +1,22 @@
 
 
-import express        from 'express'
-import mongoose       from 'mongoose'
-import bodyParser     from 'body-parser'
-import Store          from './models/storeModel'
-import storeRouter    from './routes/storeRoutes'
-import Order          from './models/orderModel'
-import orderRouter    from './routes/orderRoutes'
-import Customer       from './models/customerModel'
-import customerRouter from './routes/customerRoutes'
+import express          from 'express'
+import mongoose         from 'mongoose'
+import bodyParser       from 'body-parser'
+import Restaurant       from './models/restaurantModel'
+import restaurantRouter from './routes/restaurantRoutes'
+import Order            from './models/orderModel'
+import orderRouter      from './routes/orderRoutes'
+import Customer         from './models/customerModel'
+import customerRouter   from './routes/customerRoutes'
 
 const app    = express()
 const port   = process.env.PORT || 5555;
 
 // router middleware
-const storeRouterMiddleware    = storeRouter(Store)
-const customerRouterMiddleware = customerRouter(Customer)
-const orderRouterMiddleware    = orderRouter(Order)
+const restaurantRouterMiddleware = restaurantRouter(Restaurant)
+const customerRouterMiddleware   = customerRouter(Customer)
+const orderRouterMiddleware      = orderRouter(Order)
 
 let db;
 
@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 
 
 // resources
-app.use('/api/stores', storeRouterMiddleware)
+app.use('/api/restaurants', restaurantRouterMiddleware)
 app.use('/api/customers', customerRouterMiddleware)
 app.use('/api/orders', orderRouterMiddleware)
 

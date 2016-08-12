@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const storeModel = new Schema({
+const restaurantModel = new Schema({
     name: {
         type: String
     },
@@ -21,12 +21,12 @@ const storeModel = new Schema({
     }
 })
 
-module.exports = mongoose.model('Store', storeModel)
+module.exports = mongoose.model('Restaurant', restaurantModel)
 
 
-/* example store json model
+/* example restaurant json model
 {
- "store": {
+ "restaurant": {
  "name": "Cocheros",
  "locations": [
  {
