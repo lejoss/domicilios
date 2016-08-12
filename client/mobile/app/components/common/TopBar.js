@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 
 const TopBar = ({ children }) => (
-    <View style={{flex: 2,backgroundColor: 'powderblue', justifyContent: "center", alignItems:"center"}}>
+    <View style={{flex: 2,backgroundColor: '#BDBDBD', justifyContent: "center", alignItems:"center"}}>
         {children}
     </View>
 )

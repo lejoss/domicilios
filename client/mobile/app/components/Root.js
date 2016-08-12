@@ -13,10 +13,9 @@ export default class Root extends Component {
         })
     }
 
-
     render() {
         return(
-            <View style={{width:320, flexDirection:"row", padding: 24, justifyContent:"space-around"}}>
+            <View style={{ flex: 1 , justifyContent:"center" , alignItems:"center", margin:20}}>
 
                 <Button onPress={this.navigate.bind(this, 'map')} style={{ padding: 20}}>
                     <View style={{justifyContent: "center", alignItems:"center"}}>

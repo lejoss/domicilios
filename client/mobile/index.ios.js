@@ -40,13 +40,13 @@ class mobile_client extends Component {
           <TobBar>
               <Text>TOPBAR</Text>
           </TobBar>
-        <View style={{flex: 8,backgroundColor: 'skyblue'}} >
+        <View style={{flex: 8, backgroundColor: '#E0E0E0'}} >
             <Navigator
                 initialRoute={{name: 'root'}}
                 renderScene={this.renderScene}>
             </Navigator>
         </View>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}} />
+        <View style={{flex: 1, backgroundColor: '#BDBDBD'}} />
       </View>
     );
   }
