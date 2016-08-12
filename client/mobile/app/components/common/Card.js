@@ -12,9 +12,9 @@ export default class Card extends Component {
 
     render() {
         return(
-            <View style={{ backgroundColor:"#fafafa",marginBottom:10, height:160, margin: 10, borderRadius:2, shadowColor:"rgba(0,0,0,.20)", shadowOpacity: 0.8, shadowRadius:2, shadowOffset: {height:1, width:0}}}>
+            <View style={{ backgroundColor:"#fafafa", height:160, marginBottom: 15, borderRadius:2, shadowColor:"rgba(0,0,0,.20)", shadowOpacity: 0.8, shadowRadius:2, shadowOffset: {height:1, width:0}}}>
                 <View style={{ padding: 10}}>
-                    <Text style={{ fontSize: 16 , fontWeight: "bold"}}>
+                    <Text style={{ fontSize: 16 , fontWeight: "bold", color:"#9E9E9E"}}>
                         {this.props.title}
                     </Text>
                 </View>
@@ -33,9 +33,6 @@ export default class Card extends Component {
                         <Button style={{height:35}} textStyle={{fontSize: 14}}>Add to order $10</Button>
                     </View>
                 </View>
-
-
-
             </View>
         )
     }

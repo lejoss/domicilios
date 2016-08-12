@@ -50,7 +50,7 @@ export default class StoreListItem extends Component {
     renderLoadingView() {
         return (
             <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-                <Text style={{ fontSize: 25, color:"steelblue"}}>
+                <Text style={{ fontSize: 25, color:"#BDBDBD"}}>
                     loading data ...
                 </Text>
             </View>
@@ -58,16 +58,15 @@ export default class StoreListItem extends Component {
     }
 
     renderStoreList(store) {
+        // make a component from this
         return(
-            <TouchableHighlight>
-                <View style={{flex:1, flexDirection: "row"}}>
-                    <Image style={{height:100, width:100, borderWidth:1, borderColor:"skyblue"}} source={{uri: store.image}} />
+           <View style={{flex:1, flexDirection: "row", borderWidth:1, borderColor:"#E0E0E0"}}>
+                <Image style={{height:80, width:80}} source={{uri: store.image}} />
 
-                    <View style={{flex:1, flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "steelblue", borderWidth:1, borderColor:"skyblue"}}>
-                        <Text style={{color:"white"}}>{store.name}</Text>
-                    </View>
+                <View style={{flex:1, flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#eee"}}>
+                    <Text style={{color:"#9E9E9E"}}>{store.name}</Text>
                 </View>
-            </TouchableHighlight>
+            </View>
         )
     }
 
@@ -83,7 +82,7 @@ export default class StoreListItem extends Component {
         }
 
         return(
-            <ListView
+            <ListView style={{padding:15}}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderStoreList.bind(this)} />
         )

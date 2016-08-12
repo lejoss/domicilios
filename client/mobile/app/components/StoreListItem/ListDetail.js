@@ -38,7 +38,7 @@ export default class ListDetail extends Component {
         // <Card title={title} text={text} image={image} price={price} />
 
         return (
-            <ListView
+            <ListView style={{padding:15}}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderCards.bind(this)} />
         )

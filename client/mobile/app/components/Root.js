@@ -16,7 +16,6 @@ export default class Root extends Component {
     render() {
         return(
             <View style={{ flex: 1 , justifyContent:"center" , alignItems:"center", margin:20}}>
-
                 <Button onPress={this.navigate.bind(this, 'map')} style={{ padding: 20}}>
                     <View style={{justifyContent: "center", alignItems:"center"}}>
                         <Text>
@@ -35,5 +34,4 @@ export default class Root extends Component {
             </View>
         )
     }
-
 }

@@ -42,23 +42,22 @@ export default class Check extends Component {
 
     renderCheck(item) {
         return(
+            <View style={{flex:1, flexDirection: "row",borderWidth:1, borderColor:"#E0E0E0"}}>
+                <View style={{height:80, width:80,backgroundColor:"#BDBDBD"}}>
+                </View>
 
-            <View style={{flex:1, flexDirection: "row"}}>
-                <Image style={{height:80, width:80, borderWidth:1, borderColor:"skyblue"}} source={{uri: item.imageSrc}} />
-
-                <View style={{flex:1, flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "steelblue", borderWidth:1, borderColor:"skyblue"}}>
-                    <Text style={{color:"white"}}>{item.title}</Text>
-                    <Text style={{color:"white"}}>${item.price}</Text>
+                <View style={{flex:1, flexDirection: "column", justifyContent: "center", alignItems: "flex-start", backgroundColor: "#eee", padding:8}}>
+                    <Text style={{color:"#9E9E9E"}}>{item.title}</Text>
+                    <Text style={{color:"#424242"}}>${item.price}</Text>
                 </View>
             </View>
-
         )
     }
 
 
     render() {
         return(
-            <ListView
+            <ListView style={{padding:15}}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderCheck.bind(this)} />
         )
