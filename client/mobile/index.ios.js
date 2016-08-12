@@ -13,6 +13,7 @@ import {
   Navigator
 } from 'react-native'
 import StoreListItem from './app/components/StoreListItem/index'
+import List from './app/components/StoreListItem/List'
 import TobBar from './app/components/common/TopBar'
 import Root from './app/components/Root'
 import Map from './app/components/Map/Map'
@@ -25,7 +26,7 @@ class mobile_client extends Component {
       }
 
       if(route.name == 'list') {
-          return <StoreListItem navigator={navigator} />
+          return <List navigator={navigator} />
       }
 
       if(route.name == 'map') {

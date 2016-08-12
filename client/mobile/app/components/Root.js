@@ -14,8 +14,6 @@ export default class Root extends Component {
     }
 
 
-
-
     render() {
         return(
             <View style={{width:320, flexDirection:"row", padding: 24, justifyContent:"space-around"}}>
