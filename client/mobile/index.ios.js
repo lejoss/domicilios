@@ -12,11 +12,10 @@ import {
   View,
   Navigator
 } from 'react-native'
-import StoreListItem from './app/components/StoreListItem/index'
-import List from './app/components/StoreListItem/List'
-import TobBar from './app/components/common/TopBar'
+import {RestaurantPage} from './app/components/Restaurant'
+import {TopBar} from './app/components/common'
 import Root from './app/components/Root'
-import Map from './app/components/Map/Map'
+import Map from './app/components/Map'
 
 class mobile_client extends Component {
 
@@ -26,7 +25,7 @@ class mobile_client extends Component {
       }
 
       if(route.name == 'list') {
-          return <List navigator={navigator} />
+          return <RestaurantPage navigator={navigator} />
       }
 
       if(route.name == 'map') {
@@ -37,9 +36,9 @@ class mobile_client extends Component {
   render() {
     return (
       <View style={{ flex:1 }}>
-          <TobBar>
+          <TopBar>
               <Text>TOPBAR</Text>
-          </TobBar>
+          </TopBar>
         <View style={{flex: 8, backgroundColor: '#E0E0E0'}} >
             <Navigator
                 initialRoute={{name: 'root'}}

@@ -3,9 +3,9 @@
  */
 import React, {Component} from 'react'
 import {Text, View, Image, ListView} from 'react-native'
-import Card from '../common/Card'
+import {Card} from '../common'
 
-export default class ListDetail extends Component {
+export default class RestaurantMenuList extends Component {
     constructor(props) {
         super(props)
 
@@ -23,24 +23,19 @@ export default class ListDetail extends Component {
         })
     }
 
+    renderMenuCards = (card) => (
+        <View style={{ flex: 1, flexDirection: "column"}}>
+            <Card title={card.title} />
+        </View>
+    )
 
-
-    renderCards(card) {
-        return(
-            <View style={{ flex: 1, flexDirection: "column"}}>
-                <Card title={card.title} />
-            </View>
-        )
-    }
 
     render() {
-
-        // <Card title={title} text={text} image={image} price={price} />
 
         return (
             <ListView style={{padding:15}}
                 dataSource={this.state.dataSource}
-                renderRow={this.renderCards.bind(this)} />
+                renderRow={this.renderMenuCards} />
         )
     }
 }
