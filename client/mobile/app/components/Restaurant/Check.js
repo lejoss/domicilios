@@ -54,10 +54,9 @@ export default class Check extends Component {
         )
     }
 
-
     render() {
         return(
-            <ListView style={{padding:15}}
+            <ListView style={{padding:15, marginTop: 70}}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderCheck.bind(this)} />
         )

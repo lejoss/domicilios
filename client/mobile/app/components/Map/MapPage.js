@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     }
 })
 
-export default class Map extends Component {
+export default class MapPage extends Component {
     constructor(props) {
         super(props)
 

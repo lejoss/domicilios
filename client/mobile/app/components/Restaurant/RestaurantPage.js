@@ -51,17 +51,15 @@ export default class RestaurantPage extends Component {
             return this.renderLoadingView()
         }
 
-        return (
-            <View style={{flex:1}}>
-                <TabView>
-                    <RestaurantList restaurants={this.state.restaurants} tabLabel="Restaurants" />
-                    <RestaurantMenuList tabLabel="Menu" />
-                    <Check tabLabel="Check" />
-                </TabView>
-            </View>
-        )
+        return <RestaurantList restaurants={this.state.restaurants} />
     }
 }
+
+//<TabView>
+//    <RestaurantList navigator={this.props.navigator} restaurants={this.state.restaurants} tabLabel="Restaurants" />
+//    <RestaurantMenuList tabLabel="Menu" />
+//    <Check tabLabel="Check" />
+//</TabView>
 
 
 

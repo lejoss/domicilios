@@ -1,6 +1,6 @@
 /**
  * Created by lejoss on 8/12/16.
  */
-import Map from './Map'
+import MapPage from './MapPage'
 
-export default Map
+export default MapPage
