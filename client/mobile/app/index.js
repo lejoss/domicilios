@@ -7,7 +7,7 @@ import React, {Component} from 'react'
 import Router from './scenes'
 
 const Root = () => (
-    <Router />
+    <Router  />
 )
 
 export default Root
