@@ -3,10 +3,11 @@
  */
 
 import routes from './routes'
+import restaurants from './restaurantReducer'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
-    routes
+    restaurants
 })
 
 export default rootReducer

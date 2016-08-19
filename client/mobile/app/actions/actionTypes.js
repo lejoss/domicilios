@@ -1,0 +1,10 @@
+/**
+ * Created by lejoss on 8/19/16.
+ */
+
+// Restaurant ActionTypes
+
+export const RESTAURANTS_FETCH_START = 'RESTAURANTS_FETCH_START'
+export const RESTAURANTS_FETCH_SUCCESS = 'RESTAURANTS_FETCH_SUCCESS'
+export const RESTAURANTS_FETCH_ERROR = 'RESTAURANTS_FETCH_ERROR'
+

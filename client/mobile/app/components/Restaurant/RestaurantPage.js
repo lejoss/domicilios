@@ -4,36 +4,21 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
 import {RestaurantList} from './'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import  * as restaurantActions from '../../actions/restaurantActions'
 
 
 class RestaurantPage extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            restaurants: [],
-            isLoading: false
-        }
     }
 
-    componentDidMount() {
-        console.log(this.props.routes)
-        this.fetchData()
-    }
+    //componentDidMount() {
+    //    console.log(this.props.restaurants)
+    //}
 
-    fetchData() {
-        return fetch('http://192.168.1.57:5555/api/restaurants')
-            .then((res) => res.json())
-            .then((resJson) => {
-                console.log(resJson)
-                this.setState({
-                    restaurants:  this.state.restaurants.concat(resJson),
-                    isLoading: true
-                })
-            })
-            .catch((err) => console.log(err))
-    }
 
     renderLoadingView() {
         return (
@@ -47,14 +32,18 @@ class RestaurantPage extends Component {
 
     render() {
 
-        if (!this.state.isLoading) {
-            return this.renderLoadingView()
-        }
+        //if (!this.state.isLoading) {
+        //    return this.renderLoadingView()
+        //}
 
-        return <RestaurantList restaurants={this.state.restaurants} />
+        return <RestaurantList restaurants={this.props.restaurants} />
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({routes: state.routes})
+const mapStateToProps = (state, ownProps) => ({ restaurants: state.restaurants.data})
 
-export default connect(mapStateToProps)(RestaurantPage)
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(restaurantActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantPage)
