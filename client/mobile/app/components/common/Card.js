@@ -30,7 +30,7 @@ export default class Card extends Component {
                 </View>
                 <View style={{flex:1,flexDirection:"row", padding:10, marginBottom:10}}>
                     <View style={{flex:1}}>
-                        <Button style={{height:35}} textStyle={{fontSize: 14}}>Add to order $10</Button>
+                        <Button style={{height:35}} textStyle={{fontSize: 14}}>Add to order ${this.props.price}</Button>
                     </View>
                 </View>
             </View>

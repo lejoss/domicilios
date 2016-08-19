@@ -3,8 +3,7 @@
  */
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
-import TabView from 'react-native-scrollable-tab-view'
-import {RestaurantList, RestaurantMenuList, Check} from './'
+import {RestaurantList} from './'
 
 
 export default class RestaurantPage extends Component {
@@ -18,7 +17,6 @@ export default class RestaurantPage extends Component {
     }
 
     componentDidMount() {
-        console.log('mounted')
         this.fetchData()
     }
 
@@ -54,12 +52,4 @@ export default class RestaurantPage extends Component {
         return <RestaurantList restaurants={this.state.restaurants} />
     }
 }
-
-//<TabView>
-//    <RestaurantList navigator={this.props.navigator} restaurants={this.state.restaurants} tabLabel="Restaurants" />
-//    <RestaurantMenuList tabLabel="Menu" />
-//    <Check tabLabel="Check" />
-//</TabView>
-
-
 

@@ -2,8 +2,7 @@
  * Created by lejoss on 8/11/16.
  */
 import React, {Component} from 'react'
-import {View, Text, Modal, Image, ListView} from 'react-native'
-import Button from 'apsl-react-native-button'
+import {View, Text, ListView} from 'react-native'
 
 export default class Check extends Component {
     constructor(props) {

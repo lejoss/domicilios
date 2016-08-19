@@ -17,7 +17,6 @@ export default class RestaurantList extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.navigator)
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.props.restaurants)
         })
@@ -25,9 +24,9 @@ export default class RestaurantList extends Component {
 
     renderRestaurantList = (restaurant) => (
         //<Image style={{height:80, width:80}} source={{uri: restaurant.image}} />
-        <Button style={{borderWidth:0, backgroundColor:"red", borderRadius:0 }} onPress={Actions.menu}>
-            <View style={{flex:1, height:80, flexDirection: "row", borderWidth:1, borderColor:"#E0E0E0"}}>
-                <View style={{ width:80, backgroundColor:"#BDBDBD"}}>
+        <Button style={{flex:1, marginBottom:0, height:80,borderWidth:0, backgroundColor:"red", borderRadius:0 }} onPress={() => Actions.menu({payload: restaurant.menu})}>
+            <View style={{flex:1, flexDirection: "row", borderWidth:1, borderColor:"#E0E0E0"}}>
+                <View style={{height:80, width:80, backgroundColor:"#BDBDBD"}}>
                 </View>
                 <View style={{flex:1,justifyContent: "center", alignItems: "center", backgroundColor: "#eee"}}>
                     <Text style={{color:"#9E9E9E"}}>{restaurant.name}</Text>
@@ -37,7 +36,6 @@ export default class RestaurantList extends Component {
     )
 
     render() {
-
         return(
             <ListView
                 style={{padding:15, marginTop: 70}}
