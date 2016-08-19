@@ -4,10 +4,12 @@
 
 import routes from './routes'
 import restaurants from './restaurantReducer'
+import orders from './orderReducer'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
-    restaurants
+    restaurants,
+    orders
 })
 
 export default rootReducer

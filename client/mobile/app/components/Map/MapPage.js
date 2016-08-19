@@ -4,6 +4,10 @@
 import React, {Component} from 'react'
 import MapView from 'react-native-maps'
 import {View, Text, StyleSheet} from 'react-native'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import  * as orderActions from '../../actions/orderActions'
+
 
 const styles = StyleSheet.create({
     map: {
@@ -15,49 +19,26 @@ const styles = StyleSheet.create({
     }
 })
 
-export default class MapPage extends Component {
+class MapPage extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            orders: [],
-            isLoading: false
-        }
     }
 
-    componentDidMount() {
-        console.log('mounted')
-        this.fetchData()
-    }
-
-    fetchData() {
-        return fetch('http://192.168.1.57:5555/api/orders')
-            .then((res) => res.json())
-            .then((resJson) => {
-                console.log(resJson)
-                this.setState({
-                    orders:  this.state.orders.concat(resJson),
-                    isLoading: true
-                })
-            })
-            .catch((err) => console.log(err))
-    }
-
-    renderLoadingView() {
-        return (
-            <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-                <Text style={{ fontSize: 25, color:"#BDBDBD"}}>
-                    loading data ...
-                </Text>
-            </View>
-        )
-    }
+    //renderLoadingView() {
+    //    return (
+    //        <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
+    //            <Text style={{ fontSize: 25, color:"#BDBDBD"}}>
+    //                loading data ...
+    //            </Text>
+    //        </View>
+    //    )
+    //}
 
     render() {
 
-        if (!this.state.isLoading) {
-            return this.renderLoadingView()
-        }
+        //if (!this.state.isLoading) {
+        //    return this.renderLoadingView()
+        //}
 
         return(
             <MapView style={styles.map}
@@ -67,7 +48,7 @@ export default class MapPage extends Component {
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
             }} >
-                {this.state.orders.map((order, i) => (
+                {this.props.orders.map((order, i) => (
                     <MapView.Marker
                         key={i}
                         pinColor="#3F51B5"
@@ -81,3 +62,11 @@ export default class MapPage extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => ({ orders: state.orders.data})
+
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(orderActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapPage)
