@@ -4,9 +4,10 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
 import {RestaurantList} from './'
+import { connect } from 'react-redux'
 
 
-export default class RestaurantPage extends Component {
+class RestaurantPage extends Component {
     constructor(props) {
         super(props)
 
@@ -17,6 +18,7 @@ export default class RestaurantPage extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.routes)
         this.fetchData()
     }
 
@@ -53,3 +55,6 @@ export default class RestaurantPage extends Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => ({routes: state.routes})
+
+export default connect(mapStateToProps)(RestaurantPage)
