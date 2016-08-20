@@ -11,9 +11,8 @@ export const fetchOrdersSuccess = (orders) => ({ type: types.ORDERS_FETCH_SUCCES
 export const fetchOrders = () => (
     dispatch => {
         dispatch({ type: types.ORDERS_FETCH_START })
-        axios
-            .get('http://192.168.1.57:5555/api/orders')
-               .then( response => dispatch(fetchOrdersSuccess(response.data)))
-                .catch( err => dispatch({ type: types.ORDERS_FETCH_ERROR, payload: err }))
+        axios.get('http://192.168.1.57:5555/api/orders')
+            .then( response => dispatch(fetchOrdersSuccess(response.data)))
+            .catch( err => dispatch({ type: types.ORDERS_FETCH_ERROR, payload: err }))
     }
 )

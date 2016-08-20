@@ -1,15 +1,18 @@
 /**
  * Created by lejoss on 8/18/16.
  */
-import {ActionConst} from 'react-native-router-flux'
+
+import * as types from '../actions/actionTypes'
+
+// not sure if hacking this router focus action
 
 const initialState = {
     scene: {}
 }
 
-export default function reducer(state = initialState, action = {}) {
+export default reducer = (state = initialState, action) =>{
     switch (action.type) {
-        case ActionConst.FOCUS:
+        case types.REACT_NATIVE_ROUTER_FLUX_FOCUS:
             return {
                 ...state,
                 scene: action.scene
