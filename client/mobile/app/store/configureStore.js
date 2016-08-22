@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
 
-const logger = createLogger({ predicate: (getState, action) => __DEV__ })
+const logger = createLogger({ predicate: (getState, action) => __DEV__, collapsed: true })
 
 //Reactotron.connect({
 //    enabled: __DEV__

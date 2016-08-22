@@ -3,8 +3,9 @@
  */
 import React, {Component} from 'react'
 import {View, Text, ListView} from 'react-native'
+import {connect} from 'react-redux'
 
-export default class Check extends Component {
+class Check extends Component {
     constructor(props) {
         super(props)
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
@@ -15,27 +16,9 @@ export default class Check extends Component {
     }
 
     componentDidMount() {
-        const items = [
-            {
-                title: "Cajun Jambalaya Pasta",
-                price:10,
-                imageSrc: "http://www.myiconfinder.com/uploads/iconsets/256-256-b030adac9955cf87d7abe3e5f2106d90.png"
-            },
-            {
-                title: "Bandeja Paisa",
-                price:10,
-                imageSrc: "http://www.myiconfinder.com/uploads/iconsets/256-256-b030adac9955cf87d7abe3e5f2106d90.png"
-            },{
-                title: "Sancocho de Gallina",
-                price:10,
-                imageSrc: "http://www.myiconfinder.com/uploads/iconsets/256-256-b030adac9955cf87d7abe3e5f2106d90.png"
-            },{
-                title: "Trucha Apanada",
-                price:10,
-                imageSrc: "http://www.myiconfinder.com/uploads/iconsets/256-256-b030adac9955cf87d7abe3e5f2106d90.png"
-            }]
+        //console.log("cart", this.props.cart)
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(items)
+            dataSource: this.state.dataSource.cloneWithRows(this.props.cart.items)
         })
     }
 
@@ -61,3 +44,5 @@ export default class Check extends Component {
         )
     }
 }
+
+export default connect(({cart}) => ({cart}))(Check)

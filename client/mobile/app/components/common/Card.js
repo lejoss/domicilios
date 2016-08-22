@@ -10,6 +10,12 @@ export default class Card extends Component {
         super(props)
     }
 
+
+    handleOnPress = () => {
+        const {addItem, title, price} = this.props
+        return addItem({title, price})
+    }
+
     render() {
         return(
             <View style={{ backgroundColor:"#fafafa", height:160, marginBottom: 15, borderRadius:2, shadowColor:"rgba(0,0,0,.20)", shadowOpacity: 0.8, shadowRadius:2, shadowOffset: {height:1, width:0}}}>
@@ -30,7 +36,7 @@ export default class Card extends Component {
                 </View>
                 <View style={{flex:1,flexDirection:"row", padding:10, marginBottom:10}}>
                     <View style={{flex:1}}>
-                        <Button style={{height:35}} textStyle={{fontSize: 14}}>Add to order ${this.props.price}</Button>
+                        <Button onPress={() => this.handleOnPress()} style={{height:35}} textStyle={{fontSize: 14}}>Add to order ${this.props.price}</Button>
                     </View>
                 </View>
             </View>
