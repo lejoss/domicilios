@@ -6,6 +6,7 @@ import MapView from 'react-native-maps'
 import {View, Text, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import Loading from '../common/Loading'
 import  * as orderActions from '../../actions/orderActions'
 
 
@@ -24,31 +25,28 @@ class MapPage extends Component {
         super(props)
     }
 
-    //renderLoadingView() {
-    //    return (
-    //        <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-    //            <Text style={{ fontSize: 25, color:"#BDBDBD"}}>
-    //                loading data ...
-    //            </Text>
-    //        </View>
-    //    )
-    //}
+    componentWillMount() {
+        this.props.actions.fetchOrders()
+    }
 
     render() {
 
-        //if (!this.state.isLoading) {
-        //    return this.renderLoadingView()
-        //}
+        const {orders, isFetching} = this.props
+        const isEmpty = orders.data.length === 0
+
 
         return(
-            <MapView style={styles.map}
-                initialRegion={{
+        <View style={{flex:1, opacity: isFetching ? 0.5 : 1}}>
+            {isEmpty
+                ? (isFetching ? <Loading text="loading data"/> : null)
+                : <MapView style={styles.map}
+                           initialRegion={{
                 latitude: 37.78825,
                 longitude: -122.4324,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
             }} >
-                {this.props.orders.map((order, i) => (
+                {this.props.orders.data.map((order, i) => (
                     <MapView.Marker
                         key={i}
                         pinColor="#3F51B5"
@@ -59,11 +57,19 @@ class MapPage extends Component {
                 ))}
 
             </MapView>
+            }
+        </View>
+
         )
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({ orders: state.orders.data})
+const mapStateToProps = (state, ownProps) => {
+    const {orders} = state
+    const {isFetching} = orders
+
+    return { orders, isFetching }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(orderActions, dispatch)

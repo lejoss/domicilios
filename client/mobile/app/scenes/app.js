@@ -5,6 +5,7 @@
 import React from 'react'
 import {Actions, ActionConst, Scene} from 'react-native-router-flux'
 import Login from '../components/Login'
+//import LoginView from '../components/Login/LoginView'
 import {RestaurantPage, Check, RestaurantMenuList} from '../components/Restaurant'
 import MapPage from '../components/Map'
 

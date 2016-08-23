@@ -4,6 +4,7 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
 import {RestaurantList} from './'
+import Loading from '../common/Loading'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import  * as restaurantActions from '../../actions/restaurantActions'
@@ -15,32 +16,34 @@ class RestaurantPage extends Component {
 
     }
 
-    //componentDidMount() {
-    //    console.log(this.props.restaurants)
-    //}
-
-
-    renderLoadingView() {
-        return (
-            <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-                <Text style={{ fontSize: 25, color:"#BDBDBD"}}>
-                    loading data ...
-                </Text>
-            </View>
-        )
+    // should i do this ?
+    componentWillMount() {
+        this.props.actions.fetchRestaurants()
     }
 
+
     render() {
+        const {restaurants, isFetching} = this.props
+        const isEmpty = restaurants.data.length === 0
 
-        //if (!this.state.isLoading) {
-        //    return this.renderLoadingView()
-        //}
+        return (
+            <View style={{flex:1, opacity: isFetching ? 0.5 : 1}}>
+                {isEmpty
+                    ? (isFetching ? <Loading text="loading data"/> : null)
+                    : <RestaurantList  restaurants={this.props.restaurants.data} />
+                }
+            </View>
+        )
 
-        return <RestaurantList restaurants={this.props.restaurants} />
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({ restaurants: state.restaurants.data})
+const mapStateToProps = (state, ownProps) => {
+    const {restaurants} = state
+    const {isFetching} = restaurants
+
+    return { restaurants, isFetching }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(restaurantActions, dispatch)

@@ -5,7 +5,7 @@
 import * as types from '../actions/actionTypes'
 
 const initialState = {
-    fetching: false,
+    isFetching: false,
     fetched: false,
     data: [],
     error: null
@@ -16,20 +16,20 @@ export default restaurantReducer = (state = initialState, action) => {
         case types.RESTAURANTS_FETCH_START:
             return {
                 ...state,
-                fetching: true
+                isFetching: true
             }
 
         case types.RESTAURANTS_FETCH_ERROR:
             return {
                 ...state,
-                fetching: false,
+                isFetching: false,
                 error: action.payload
             }
 
         case types.RESTAURANTS_FETCH_SUCCESS:
             return {
                 ...state,
-                fetching: false,
+                isFetching: false,
                 fetched: true,
                 data: action.payload
             }

@@ -11,8 +11,8 @@ import {fetchOrders} from './actions/orderActions'
 //const RouterWithRedux = connect()(Router)
 
 const store = configureStore()
-store.dispatch(fetchOrders())
-store.dispatch(fetchRestaurants())
+//store.dispatch(fetchOrders())
+//store.dispatch(fetchRestaurants())
 
 const Root = () => (
     <Provider store={store}>

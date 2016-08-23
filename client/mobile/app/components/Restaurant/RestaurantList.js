@@ -16,7 +16,7 @@ export default class RestaurantList extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.props.restaurants)
         })
@@ -24,7 +24,7 @@ export default class RestaurantList extends Component {
 
     renderRestaurantList = (restaurant) => (
         //<Image style={{height:80, width:80}} source={{uri: restaurant.image}} />
-        <Button style={{flex:1, marginBottom:0, height:80,borderWidth:0, backgroundColor:"red", borderRadius:0 }} onPress={() => Actions.menu({payload: restaurant.menu})}>
+        <Button style={{flex:1, marginBottom:0, height:80,borderWidth:0, backgroundColor:"red", borderRadius:0 }} onPress={() => Actions.menu({payload: restaurant})}>
             <View style={{flex:1, flexDirection: "row", borderWidth:1, borderColor:"#E0E0E0"}}>
                 <View style={{height:80, width:80, backgroundColor:"#BDBDBD"}}>
                 </View>

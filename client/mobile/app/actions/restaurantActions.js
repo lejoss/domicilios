@@ -6,7 +6,7 @@ import axios from 'axios'
 
 // action creators
 
-export const fetchRestaurantsSuccess = (restaurants) => ({ type: types.RESTAURANTS_FETCH_SUCCESS, payload: restaurants })
+const fetchRestaurantsSuccess = (restaurants) => ({ type: types.RESTAURANTS_FETCH_SUCCESS, payload: restaurants })
 
 export const fetchRestaurants = () => (
     dispatch => {

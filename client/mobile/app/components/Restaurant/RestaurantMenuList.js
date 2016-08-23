@@ -15,21 +15,19 @@ export default class RestaurantMenuList extends Component {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
         this.state = {
-            dataSource: ds,
-            menu: {}
+            dataSource: ds
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(this.props.payload.food.burgers)
+    componentWillMount() {
 
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(this.props.payload.menu.food.burgers)
         })
     }
 
     handleAddItem = (item) => {
         const {cartAddItem} = this.props.actions
-
         cartAddItem(item)
     }
 
