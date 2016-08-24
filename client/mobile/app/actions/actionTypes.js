@@ -28,3 +28,10 @@ export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM'
 
 export const REACT_NATIVE_ROUTER_FLUX_FOCUS = 'REACT_NATIVE_ROUTER_FLUX_FOCUS'
 
+
+// UI Actions
+
+export const SHOW_MODAL = 'SHOW_MODAL'
+export const HIDE_MODAL = 'HIDE_MODAL'
+export const INCREMENT  = 'INCREMENT'
+export const DECREMENT =  'DECREMENT'

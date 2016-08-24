@@ -2,7 +2,7 @@
  * Created by lejoss on 8/11/16.
  */
 import React, {Component} from 'react'
-import {View, Text, Image} from 'react-native'
+import {View, Text, Image, Modal} from 'react-native'
 import Button from 'apsl-react-native-button'
 
 export default class Card extends Component {
@@ -11,10 +11,12 @@ export default class Card extends Component {
     }
 
 
+
     handleOnPress = () => {
         const {addItem, title, price} = this.props
         return addItem({title, price})
     }
+
 
     render() {
         return(
@@ -36,10 +38,11 @@ export default class Card extends Component {
                 </View>
                 <View style={{flex:1,flexDirection:"row", padding:10, marginBottom:10}}>
                     <View style={{flex:1}}>
-                        <Button onPress={() => this.handleOnPress()} style={{height:35}} textStyle={{fontSize: 14}}>Add to order ${this.props.price}</Button>
+                        <Button onPress={() => this.props.showModal()} style={{height:35}} textStyle={{fontSize: 14}}>Add to order ${this.props.price}</Button>
                     </View>
                 </View>
             </View>
         )
     }
 }
+
