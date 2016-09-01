@@ -24,11 +24,24 @@ export default class MenuItemCard extends Component {
         const total      = price * quantity
         const orderBgBtn = quantity > 1 ? "#f1f1f1" : "transparent"
         const prepOrder  = ({
-            itemName: title,
-            itemQuantity: this.state.quantity,
-            itemPrice: price,
-            restaurant,
-            total
+            customer:{
+                "name": "Alejandro",
+                "phone":0,
+                "location": {
+                    "address": "Proviteq",
+                    "coordinate": {
+                        "latitude": 12.78825,
+                        "longitude": -152.4324
+                    }
+                }
+            },
+            order: {
+                itemName: title,
+                itemQuantity: this.state.quantity,
+                itemPrice: price,
+                restaurant,
+                total
+            }
         })
 
         const cardToRender = (

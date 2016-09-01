@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal,Text,View} from 'react-native'
+import {Modal,Text,View, ScrollView} from 'react-native'
 import Button from 'apsl-react-native-button'
 
 
@@ -20,14 +20,17 @@ export default class ConfirmOrderModal extends Component {
                 visible={this.props.visible}
                 >
                     <View style={{flex:1, justifyContent:"center", alignItems:"center", padding: 20, backgroundColor: "rgba(0, 0, 0, 0.5)"}}>
-                        <View style={{ borderRadius: 10, width:320, backgroundColor: '#fff', padding: 30}}>
+                        <View style={{maxHeight:420, borderRadius: 10, width:320, backgroundColor: '#fff', padding: 30}}>
                             <Text style={{textAlign: "center"}}>{this.props.title}</Text>
 
-                            <View>
-                                {this.props.orders.map((order, i) => (<OrderRow key={i} order={order} />))}
-                            </View>
+                            <ScrollView style={{height: 270,marginTop:5}}>
+                                <View>
+                                    {this.props.orders.map((order, i) => (<OrderRow key={i} order={order} />))}
+                                </View>
+                            </ScrollView>
 
-                            <View style={{marginTop:30}}>
+
+                            <View style={{marginTop:20}}>
                                 <Text>TOTAL: {total}</Text>
                             </View>
 
@@ -35,14 +38,14 @@ export default class ConfirmOrderModal extends Component {
                                 <View style={{flex:1}}>
                                     <Button
                                         onPress={() => this.props.close()}
-                                        style={{borderWidth:0,marginTop: 10}}>
+                                        style={{borderWidth:0}}>
                                         Cancel
                                     </Button>
                                 </View>
                                 <View style={{flex:1}}>
                                     <Button
                                         onPress={() => this.props.confirmOrder()}
-                                        style={{borderWidth:0,marginTop: 10}}>
+                                        style={{borderWidth:0}}>
                                         Accept
                                     </Button>
                                 </View>

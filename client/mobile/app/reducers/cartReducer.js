@@ -29,6 +29,9 @@ export default cartReducer = (state = initialState, action = {}) => {
                 ]
             }
 
+        case types.CART_CLEAN_CART:
+            return initialState
+
         default:
             return state
     }

@@ -57,7 +57,7 @@ class CartPage extends Component {
     }
 
     handleConfirmOrder() {
-        const {createOrder} = this.props.actions
+        const {createOrder, cartClean, callToast} = this.props.actions
         this.props.cart.items.map(item => {
             console.log(item)
             createOrder({
@@ -66,6 +66,8 @@ class CartPage extends Component {
             })
         })
         this.handleCloseModal()
+        cartClean()
+        callToast('Thanks for Ordering with us <3')
     }
 
     render() {
