@@ -10,7 +10,7 @@ export default class ConfirmOrderModal extends Component {
 
     render() {
         let total = this.props.orders
-            .map(order => order.itemPrice)
+            .map(order => order.order.total)
             .reduce((total, num) => total + num)
 
         return(
@@ -28,7 +28,6 @@ export default class ConfirmOrderModal extends Component {
                             </View>
 
                             <View style={{marginTop:30}}>
-                                {}
                                 <Text>TOTAL: {total}</Text>
                             </View>
 
@@ -38,6 +37,13 @@ export default class ConfirmOrderModal extends Component {
                                         onPress={() => this.props.close()}
                                         style={{borderWidth:0,marginTop: 10}}>
                                         Cancel
+                                    </Button>
+                                </View>
+                                <View style={{flex:1}}>
+                                    <Button
+                                        onPress={() => this.props.confirmOrder()}
+                                        style={{borderWidth:0,marginTop: 10}}>
+                                        Accept
                                     </Button>
                                 </View>
                             </View>
@@ -52,13 +58,16 @@ export default class ConfirmOrderModal extends Component {
 const OrderRow = ({order}) => (
     <View style={{flex:1, marginTop:20}}>
         <Text>
-            Item: {order.itemName}
+            restaurant: {order.order.restaurant.name}
         </Text>
         <Text>
-            quantity: {order.itemQuantity}
+            Item: {order.order.itemName}
         </Text>
         <Text>
-            price: ${order.total}
+            quantity: {order.order.itemQuantity}
+        </Text>
+        <Text>
+            price: ${order.order.total}
         </Text>
     </View>
 )

@@ -10,7 +10,7 @@ const orderModel = new Schema({
     customer: {
         type: Object
     },
-    restaurant: {
+    order: {
         type: Object
     },
     items: {

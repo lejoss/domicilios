@@ -7,7 +7,7 @@ const initialState = {
     fetching: false,
     fetched: false,
     data: [],
-    error: null,
+    error: null
 
 }
 
@@ -37,7 +37,9 @@ export default ordersReducer = (state = initialState, action) => {
         case types.ORDERS_CREATE_SUCCESS:
             return {
                 ...state,
-                data: action.payload
+                data: [
+                    action.payload
+                ]
             }
 
         default:

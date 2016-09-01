@@ -16,10 +16,12 @@ class CartPage extends Component {
         })
 
         this.handleCloseModal = this.handleCloseModal.bind(this)
+        this.handleConfirmOrder = this.handleConfirmOrder.bind(this)
     }
 
     renderCartRow = (item, sectionID, rowID) => {
         const {cartRemoveItem, callToast} = this.props.actions
+        const {customer, order} = item
         return(
             <View style={{flex:1, flexDirection: "row",borderWidth:1, borderColor:"#E0E0E0"}}>
                 <View style={{height:80, width:80,backgroundColor:"#BDBDBD"}}>
@@ -36,8 +38,8 @@ class CartPage extends Component {
                             x
                         </Button>
                     </Text>
-                    <Text style={{color:"#9E9E9E"}}>{item.itemName}</Text>
-                    <Text style={{color:"#424242"}}>${item.total}</Text>
+                    <Text style={{color:"#9E9E9E"}}>{order.itemName}</Text>
+                    <Text style={{color:"#424242"}}>${order.total}</Text>
                 </View>
             </View>
         )
@@ -52,6 +54,18 @@ class CartPage extends Component {
     handleCloseModal() {
         const {hideModal} = this.props.actions
         hideModal()
+    }
+
+    handleConfirmOrder() {
+        const {createOrder} = this.props.actions
+        this.props.cart.items.map(item => {
+            console.log(item)
+            createOrder({
+                customer: item.customer,
+                order: item.order
+            })
+        })
+        this.handleCloseModal()
     }
 
     render() {
@@ -72,6 +86,7 @@ class CartPage extends Component {
                         visible={this.props.modals.confirmOrder.isVisible}
                         title="Your Order"
                         orders={this.props.cart.items}
+                        confirmOrder={this.handleConfirmOrder}
                         close={this.handleCloseModal}
                     />
                     <ListView
@@ -87,17 +102,9 @@ class CartPage extends Component {
     }
 }
 
-////createOrder({
-//    customer: "harcoded new",
-//    restaurant: {
-//        coordinate: {
-//            longitude: this.props.cart.items[0].restaurant.coordinate.longitude + 50,
-//            latitude: this.props.cart.items[0].restaurant.coordinate.latitude
-//        },
-//        name: this.props.cart.items[0].restaurant.name
-//    },
-//    total: 0
-//})
+
+
+
 const mapStateToProps = (state, ownProps) => {
     const {cart} = state
     const {modals} = state.UI

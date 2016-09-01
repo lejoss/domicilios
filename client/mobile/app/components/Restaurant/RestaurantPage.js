@@ -16,7 +16,8 @@ class RestaurantPage extends Component {
     }
 
     componentDidMount() {
-        this.props.actions.fetchRestaurants()
+        const {fetchRestaurants} = this.props.actions
+        fetchRestaurants()
     }
 
     render() {

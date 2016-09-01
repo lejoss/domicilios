@@ -25,7 +25,7 @@ class MapPage extends Component {
         super(props)
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.fetchOrders()
     }
 
@@ -33,7 +33,6 @@ class MapPage extends Component {
 
         const {orders, isFetching} = this.props
         const isEmpty = orders.data.length === 0
-
 
         return(
         <View style={{flex:1, opacity: isFetching ? 0.5 : 1}}>
@@ -46,15 +45,17 @@ class MapPage extends Component {
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
             }} >
-                {this.props.orders.data.map((order, i) => (
-                    <MapView.Marker
-                        key={i}
-                        pinColor="#3F51B5"
-                        coordinate={order.restaurant.coordinate}
-                        title={order.restaurant.name}
-                        description="lolo"
-                    />
-                ))}
+                {this.props.orders.data.map((order, i) => {
+                    return (
+                        <MapView.Marker
+                            key={i}
+                            pinColor="#3F51B5"
+                            coordinate={order.order.restaurant.coordinate}
+                            title={order.order.restaurant.name}
+                            description="lolo"
+                        />
+                    )
+                })}
 
             </MapView>
             }
@@ -65,10 +66,10 @@ class MapPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const {orders} = state
+    const {orders, customer} = state
     const {isFetching} = orders
 
-    return { orders, isFetching }
+    return { orders, customer, isFetching }
 }
 
 const mapDispatchToProps = (dispatch) => ({
