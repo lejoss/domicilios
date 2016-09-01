@@ -4,7 +4,7 @@
 
 import RestaurantPage from './RestaurantPage'
 import RestaurantList from './RestaurantList'
-import RestaurantMenuList from './RestaurantMenuList'
+import RestaurantMenuPage from './RestaurantMenuPage'
+import MenuItemCard from './MenuItemCard'
 
-
-export {RestaurantPage, RestaurantList, RestaurantMenuList}
+export {RestaurantPage, RestaurantList, RestaurantMenuPage, MenuItemCard}

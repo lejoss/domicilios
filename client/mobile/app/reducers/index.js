@@ -6,14 +6,14 @@ import routes from './routesReducer'
 import restaurants from './restaurantReducer'
 import orders from './orderReducer'
 import cart from './cartReducer'
-import modals from './modalReducer'
+import UI from './uiReducer'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
     restaurants,
     orders,
     cart,
-    modals,
+    UI,
     routes
 })
 

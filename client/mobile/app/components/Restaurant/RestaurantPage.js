@@ -13,14 +13,11 @@ import  * as restaurantActions from '../../actions/restaurantActions'
 class RestaurantPage extends Component {
     constructor(props) {
         super(props)
-
     }
 
-    // should i do this ?
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.fetchRestaurants()
     }
-
 
     render() {
         const {restaurants, isFetching} = this.props
@@ -30,7 +27,7 @@ class RestaurantPage extends Component {
             <View style={{flex:1, opacity: isFetching ? 0.5 : 1}}>
                 {isEmpty
                     ? (isFetching ? <Loading text="loading data"/> : null)
-                    : <RestaurantList  restaurants={this.props.restaurants.data} />
+                    : <RestaurantList restaurants={this.props.restaurants.data} />
                 }
             </View>
         )

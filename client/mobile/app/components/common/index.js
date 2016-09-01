@@ -1,7 +1,7 @@
 /**
  * Created by lejoss on 8/12/16.
  */
-import Card from './Card'
+import MenuItemCard from './MenuItemCard'
 import QuantityModal from './QuantityModal'
 
-export {Card, QuantityModal}
+export {MenuItemCard, QuantityModal}

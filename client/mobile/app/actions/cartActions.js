@@ -7,4 +7,4 @@ import axios from 'axios'
 // action creators
 
 export const cartAddItem = (item) => ({ type: types.CART_ADD_ITEM, payload: item })
-export const cartRemoveItem = (itemId) => ({ type: types.ORDERS_FETCH_SUCCESS, payload: itemId })
+export const cartRemoveItem = (itemId) => ({ type: types.CART_REMOVE_ITEM, payload: itemId })

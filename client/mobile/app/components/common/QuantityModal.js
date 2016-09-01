@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
 import {Modal,Text,View} from 'react-native'
 import Button from 'apsl-react-native-button'
-import  * as modalActions from '../../actions/modalActions'
-import  * as cartActions from '../../actions/cartActions'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 
-class QuantityModal extends Component {
+
+export default class QuantityModal extends Component {
     constructor(props) {
         super(props)
     }
@@ -16,7 +13,7 @@ class QuantityModal extends Component {
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={this.props.quantityModal.isVisible}
+                visible={this.props.visible}
                 >
                     <View style={{flex:1, justifyContent:"center", alignItems:"center", padding: 20, backgroundColor: "rgba(0, 0, 0, 0.5)"}}>
                         <View style={{ borderRadius: 10, width:320, backgroundColor: '#fff', padding: 20}}>
@@ -30,8 +27,8 @@ class QuantityModal extends Component {
                                         <Button
                                             style={{borderWidth:0,marginTop: 10}}
                                             onPress={() => {
-                                                if(this.props.quantityModal.quantity !==0) {
-                                                    this.props.actions.decrement()
+                                                if(this.props.quantity !==0) {
+                                                    this.props.decrement()
                                                 }
                                             }}
                                         >
@@ -40,7 +37,7 @@ class QuantityModal extends Component {
                                     </View>
                                     <View style={{flex:1, borderLeftWidth:1, borderRightWidth:1, justifyContent:"center", alignItems:"center"}}>
                                         <Text style={{textAlign:"center", padding:5, width:40}}>
-                                            {this.props.quantityModal.quantity}
+                                            {this.props.quantity}
                                         </Text>
 
                                     </View>
@@ -48,7 +45,7 @@ class QuantityModal extends Component {
                                         <Button
                                             style={{borderWidth:0,marginTop: 10}}
                                             onPress={() => {
-                                                this.props.actions.increment()
+                                                this.props.increment()
                                             }}>
                                             +
                                         </Button>
@@ -59,7 +56,7 @@ class QuantityModal extends Component {
                             <View style={{flex:1, flexDirection:"row"}}>
                                 <View style={{flex:1}}>
                                     <Button
-                                        onPress={() => this.props.actions.hideModal()}
+                                        onPress={() => this.props.close()}
                                         style={{borderWidth:0,marginTop: 10}}>
                                         Cancel
                                     </Button>
@@ -70,9 +67,9 @@ class QuantityModal extends Component {
                                             this.props.actions.cartAddItem({
                                                 title: "title",
                                                 price: "100",
-                                                quantity: this.props.quantityModal.quantity
+                                                quantity: this.props.quantity
                                             })
-                                            this.props.actions.hideModal()
+                                            this.props.close()
                                         }}
                                         style={{borderWidth:0,marginTop: 10}}>
                                         Add
@@ -86,15 +83,4 @@ class QuantityModal extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const {quantityModal} = state.modals
-
-    return { quantityModal }
-
-}
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators({...modalActions, ...cartActions}, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(QuantityModal)
 
