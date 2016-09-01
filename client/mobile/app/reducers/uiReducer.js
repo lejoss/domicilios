@@ -8,7 +8,9 @@ import * as types from '../actions/actionTypes'
 
 const initialState = {
     modals: {
-        isVisible: false
+        confirmOrder: {
+            isVisible: false
+        }
     },
     toast: {
         isVisible: false,
@@ -22,18 +24,19 @@ export default uiReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 modals:{
-                    ...state.modals,
-                    isVisible: true
+                    confirmOrder: {
+                        isVisible: true
+                    }
                 }
-
             }
 
         case types.HIDE_MODAL:
             return {
                 ...state,
                 modals:{
-                    ...state.modals,
-                    isVisible: false
+                    confirmOrder:{
+                        isVisible: false
+                    }
                 }
         }
 

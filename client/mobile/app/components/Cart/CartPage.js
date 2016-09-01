@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {View, Text, ListView} from 'react-native'
+import {ConfirmOrderModal} from '../common'
 import Button from 'apsl-react-native-button'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -13,6 +14,8 @@ class CartPage extends Component {
         this.dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         })
+
+        this.handleCloseModal = this.handleCloseModal.bind(this)
     }
 
     renderCartRow = (item, sectionID, rowID) => {
@@ -46,8 +49,13 @@ class CartPage extends Component {
     //    console.log(total)
     //}
 
+    handleCloseModal() {
+        const {hideModal} = this.props.actions
+        hideModal()
+    }
+
     render() {
-        const {createOrder} = this.props.actions
+        const {createOrder, showModal} = this.props.actions
         const dataSource = this.dataSource.cloneWithRows(this.props.cart.items)
 
         if (this.props.cart.items.length  == 0) {
@@ -60,35 +68,42 @@ class CartPage extends Component {
         return(
             <View style={{flex:1}}>
                 <View style={{flex:8}}>
+                    <ConfirmOrderModal
+                        visible={this.props.modals.confirmOrder.isVisible}
+                        title="Your Order"
+                        orders={this.props.cart.items}
+                        close={this.handleCloseModal}
+                    />
                     <ListView
                         style={{padding:15, marginTop: 70}}
                         dataSource={dataSource}
                         renderRow={this.renderCartRow} />
                 </View>
                 <View style={{flex: 1, backgroundColor: "#eee",justifyContent:"center", alignItems:"center"}}>
-                    <Button onPress={
-                        () => {
-                            createOrder({
-                                customer: "lejoss",
-                                restaurant: {
-                                    coordinate: {
-                                        longitude: this.props.cart.items[0].restaurant.coordinate.longitude,
-                                        latitude: this.props.cart.items[0].restaurant.coordinate.latitude
-                                    },
-                                    name: this.props.cart.items[0].restaurant.name
-                                },
-                                total: 0
-                            })
-                        }
-                    }>order</Button>
+                    <Button onPress={() => showModal()}>order</Button>
                 </View>
             </View>
         )
     }
 }
 
+////createOrder({
+//    customer: "harcoded new",
+//    restaurant: {
+//        coordinate: {
+//            longitude: this.props.cart.items[0].restaurant.coordinate.longitude + 50,
+//            latitude: this.props.cart.items[0].restaurant.coordinate.latitude
+//        },
+//        name: this.props.cart.items[0].restaurant.name
+//    },
+//    total: 0
+//})
+const mapStateToProps = (state, ownProps) => {
+    const {cart} = state
+    const {modals} = state.UI
 
-const mapStateToProps = (state, ownProps) => ({ cart: state.cart})
+    return {modals, cart}
+}
 
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators({...orderActions, ...cartActions, ...uiActions}, dispatch)

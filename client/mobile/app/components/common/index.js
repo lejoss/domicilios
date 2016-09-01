@@ -1,7 +1,8 @@
 /**
  * Created by lejoss on 8/12/16.
  */
-import MenuItemCard from './MenuItemCard'
-import QuantityModal from './QuantityModal'
+import ConfirmOrderModal from './ConfirmOrderModal'
+import Loading from './Loading'
+import Toast from './Toast'
 
-export {MenuItemCard, QuantityModal}
+export {ConfirmOrderModal, Loading, Toast}
