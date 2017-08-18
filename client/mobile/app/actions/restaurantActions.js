@@ -9,12 +9,12 @@ import axios from 'axios'
 const fetchRestaurantsSuccess = (restaurants) => ({ type: types.RESTAURANTS_FETCH_SUCCESS, payload: restaurants })
 
 export const fetchRestaurants = () => (
-    dispatch => {
-        dispatch({ type: types.RESTAURANTS_FETCH_START })
-        axios.get('http://192.168.1.57:5555/api/restaurants')
-            .then( response => dispatch(fetchRestaurantsSuccess(response.data)))
-            .catch( err => dispatch({ type: types.RESTAURANTS_FETCH_ERROR, payload: err }))
-    }
+  dispatch => {
+    dispatch({ type: types.RESTAURANTS_FETCH_START })
+    axios.get('http://localhost:5555/api/restaurants')
+      .then( response => dispatch(fetchRestaurantsSuccess(response.data)))
+      .catch( err => dispatch({ type: types.RESTAURANTS_FETCH_ERROR, payload: err }))
+  }
 )
 
 

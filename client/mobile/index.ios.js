@@ -8,4 +8,4 @@ import React from 'react'
 import { AppRegistry } from 'react-native'
 import Root from './app'
 
-AppRegistry.registerComponent('mobile_client', () => Root)
+AppRegistry.registerComponent('Deliveries', () => Root)

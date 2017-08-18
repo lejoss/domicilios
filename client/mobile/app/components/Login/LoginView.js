@@ -3,56 +3,58 @@ import {Text, View, TextInput} from 'react-native'
 import Button from 'apsl-react-native-button'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-// import login actions below ...
 
 class LoginView extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { username: 'username', password: 'password' };
 
-    }
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: 'username',
+      password: 'password'
+    };
+  }
 
-    componentWillMount() {}
+  componentWillMount() {}
 
-    render() {
-        return (
-            <View style={{flex:1}}>
-                <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-                    <Text style={{fontSize: 18}}>logo</Text>
-                </View>
-                <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
+  render() {
+    return (
+      <View style={{flex:1}}>
+        <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
+          <Text style={{fontSize: 18}}>logo</Text>
+        </View>
+        <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
 
-                    <TextInput
-                        style={{height: 40, borderColor: 'gray', borderWidth: 1,marginLeft: 25, marginRight: 25, textAlign: "center"}}
-                        value={this.state.username}
-                        onChangeText={(username) => this.setState({username})}
-                    />
-                    <TextInput
-                        style={{height: 40, borderColor: 'gray', borderWidth: 1,marginLeft: 25, marginRight: 25, textAlign: "center"}}
-                        value={this.state.password}
-                        onChangeText={(password) => this.setState({password})}
-                    />
+          <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1,marginLeft: 25, marginRight: 25, textAlign: "center"}}
+          value={this.state.username}
+          onChangeText={(username) => this.setState({username})}
+          />
+          <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1,marginLeft: 25, marginRight: 25, textAlign: "center"}}
+          value={this.state.password}
+          onChangeText={(password) => this.setState({password})}
+          />
 
-                </View>
-                <View style={{flex:1,justifyContent: "center", alignItems: "center"}}>
-                    <Button style={{borderColor: 'gray', marginLeft: 25, marginRight: 25, borderRadius:0}}> login</Button>
-                </View>
-            </View>
-        )
-    }
+        </View>
+        <View style={{flex:1,justifyContent: "center", alignItems: "center"}}>
+          <Button style={{borderColor: 'gray', marginLeft: 25, marginRight: 25, borderRadius:0}}> login</Button>
+        </View>
+      </View>
+    )
+  }
 }
 
 
 //function mapStateToProps(state, ownProps) {
-//    return {
-//        state: state
-//    }
+//  return {
+//  state: state
+//  }
 //}
 //
 //function mapDispatchToProps(dispatch) {
-//    return {
-//        actions: bindActionCreators(dispatch)
-//    }
+//  return {
+//  actions: bindActionCreators(dispatch)
+//  }
 //}
 
 export default LoginView

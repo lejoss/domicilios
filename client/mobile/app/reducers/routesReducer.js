@@ -7,18 +7,18 @@ import * as types from '../actions/actionTypes'
 // not sure if hacking this router focus action
 
 const initialState = {
-    scene: {}
+  scene: {}
 }
 
-export default reducer = (state = initialState, action) =>{
-    switch (action.type) {
-        case types.REACT_NATIVE_ROUTER_FLUX_FOCUS:
-            return {
-                ...state,
-                scene: action.scene
-            }
+export default reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.REACT_NATIVE_ROUTER_FLUX_FOCUS:
+      return {
+        ...state,
+        scene: action.scene
+      }
 
-        default:
-            return state
-    }
+    default:
+      return state
+  }
 }

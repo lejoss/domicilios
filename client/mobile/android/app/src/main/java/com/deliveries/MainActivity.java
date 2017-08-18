@@ -1,7 +1,6 @@
-package com.mobile_client;
+package com.deliveries;
 
 import com.facebook.react.ReactActivity;
-import com.airbnb.android.react.maps.MapsPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "mobile_client";
+        return "Deliveries";
     }
 }
