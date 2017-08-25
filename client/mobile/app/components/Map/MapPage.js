@@ -36,7 +36,7 @@ class MapPage extends Component {
       isFetching
     } = this.props
 
-    const isEmpty = orders.data.length === 0
+    const isEmpty = orders.data && orders.data.length === 0
 
     return (
       <View style={{flex:1, opacity: isFetching ? 0.5 : 1}}>
@@ -46,10 +46,10 @@ class MapPage extends Component {
           <MapView
             style={styles.map}
             initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
+              latitude: 4.5254102,
+              longitude: -75.6790586,
+              latitudeDelta: 0,
+              longitudeDelta: 0
             }}
             >
             {this.props.orders.data.map((order, i) => {
@@ -59,7 +59,6 @@ class MapPage extends Component {
               pinColor="#3F51B5"
               coordinate={order.order.restaurant.coordinate}
               title={order.order.restaurant.name}
-              description="lolo"
               />
             )
             })}

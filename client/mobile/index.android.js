@@ -6,6 +6,6 @@
 
 import React from 'react'
 import { AppRegistry } from 'react-native'
-import Root from './app'
+import Root from './app/index'
 
 AppRegistry.registerComponent('Deliveries', () => Root)

@@ -34,7 +34,7 @@ class CartPage extends Component {
 
         </View>
         <View style={{flex:1, flexDirection: "column", backgroundColor: "#eee", padding:8}}>
-          <Text style={{textAlign:"right"}}>
+          <View>
             <Button
               onPress={() => {
                 cartRemoveItem(rowID)
@@ -43,7 +43,7 @@ class CartPage extends Component {
               style={{borderWidth:0, width:20, height:20}}>
               x
             </Button>
-          </Text>
+          </View>
           <Text style={{color:"#9E9E9E"}}>{order.itemName}</Text>
           <Text style={{color:"#424242"}}>${order.total}</Text>
         </View>

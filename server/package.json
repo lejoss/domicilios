@@ -5,6 +5,7 @@
   "main": "dist",
   "scripts": {
     "dev": "watch 'npm run build' src/",
+    "prestart": "node ./src/db-insert-script.js",
     "start": "npm run build && node dist",
     "build": "babel src -s -D -d dist",
     "clean": "rm -r dist/*"

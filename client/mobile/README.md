@@ -19,6 +19,8 @@ Install react native cli
 
 `cd client/mobile `
 
+go to `app/constants` and set your IP in this var: `BACKEND_URL`
+
 `npm install`
 
 `npm start`

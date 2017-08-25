@@ -15,8 +15,8 @@ const scenes = Actions.create(
     <Scene key="login" component={Login} title="Login" hideNavBar={true} />
     <Scene key="map" component={MapPage} title="Map" type={ActionConst.REPLACE} renderRightButton={() => null} />
     <Scene key="restaurants" component={RestaurantPage} title="Restaurants" type={ActionConst.REPLACE} />
-    <Scene key="menu" component={RestaurantMenuPage} title="Menu" sceneStyle={{backgroundColor: "#eee"}}/>
-    <Scene key="cart" component={CartPage} title="Cart"  renderRightButton={() => null}/>
+    <Scene key="menu" type={ActionConst.REPLACE} component={RestaurantMenuPage} title="Menu" sceneStyle={{backgroundColor: "#eee"}}/>
+    <Scene key="cart" type={ActionConst.REPLACE} component={CartPage} title="Cart"  renderRightButton={() => null}/>
   </Scene>
 )
 

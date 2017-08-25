@@ -17,6 +17,7 @@ export default class ConfirmOrderModal extends Component {
         animationType="slide"
         transparent={true}
         visible={this.props.visible}
+        onRequestClose={this.props.close}
       >
       <View style={{flex:1, justifyContent:"center", alignItems:"center", padding: 20, backgroundColor: "rgba(0, 0, 0, 0.5)"}}>
       <View style={{maxHeight:420, borderRadius: 10, width:320, backgroundColor: '#fff', padding: 30}}>

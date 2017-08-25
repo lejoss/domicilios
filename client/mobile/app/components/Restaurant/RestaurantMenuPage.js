@@ -45,7 +45,7 @@ class RestaurantMenuPage extends Component {
   }
 
   render() {
-    const dataSource = this.dataSource.cloneWithRows(this.props.payload.menu.food.burgers)
+    const dataSource = this.dataSource.cloneWithRows(this.props.payload.catalog.food[0].burgers)
     return (
       <View style={{flex:1}}>
       <ListView
