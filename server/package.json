@@ -5,7 +5,7 @@
   "main": "dist",
   "scripts": {
     "dev": "watch 'npm run build' src/",
-    "start": "node dist",
+    "start": "npm run build && node dist",
     "build": "babel src -s -D -d dist",
     "clean": "rm -r dist/*"
   },

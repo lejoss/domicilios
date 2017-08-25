@@ -3,6 +3,7 @@
  */
 import  * as types from './actionTypes'
 import axios from 'axios'
+import {BACKEND_URL} from '../constants';
 
 // action creators
 
@@ -13,7 +14,7 @@ export const createOrderSuccess = () => ({ type: types.ORDERS_CREATE_SUCCESS })
 export const fetchOrders = () => (
   dispatch => {
     dispatch({ type: types.ORDERS_FETCH_START })
-    axios.get('http://localhost:5555/api/orders')
+    axios.get(`${BACKEND_URL}/api/orders`)
       .then( response => dispatch(fetchOrdersSuccess(response.data)))
       .catch( err => dispatch({ type: types.ORDERS_FETCH_ERROR, payload: err }))
   }
@@ -23,7 +24,7 @@ export const fetchOrders = () => (
 export const createOrder = (order) => (
   dispatch => {
     dispatch ({ type: types.ORDERS_CREATE_START })
-    axios.post('http://localhost:5555/api/orders', order)
+    axios.post(`${BACKEND_URL}/api/orders`, order)
       .then( response => dispatch(createOrderSuccess(response.data)))
       .catch( err => dispatch({ type: types.ORDERS_CREATE_ERROR, payload: err }))
   }
